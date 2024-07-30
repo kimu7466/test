@@ -1,0 +1,78 @@
+To provide a solid example that encompasses most of the file handling concepts in Python, let's create a mini-project that performs the following tasks:
+
+1. **Check if a file exists** and create it if it doesn't.
+2. **Write** some content to the file.
+3. **Read** the content from the file and **print** it to the console.
+4. **Append** new content to the file.
+5. **Read** the appended content and **print** it.
+6. Use the **`with` statement** to ensure proper opening and closing of the file.
+
+This example will give you a practical understanding of how file handling works in Python.
+
+### Step by Step Guide
+
+#### Step 1: Check if a File Exists and Create It
+
+```python
+import os
+
+# Define the filename
+filename = 'example_file.txt'
+
+# Check if the file does not exist
+if not os.path.exists(filename):
+    # Open the file in write mode to create it
+    with open(filename, 'w') as file:
+        file.write("This is the initial line of the file.\n")
+    print(f"{filename} created.")
+else:
+    print(f"{filename} already exists.")
+```
+
+#### Step 2: Write Some Content to the File
+
+We've already created the file and added an initial line in the previous step. Now, let's add multiple lines.
+
+```python
+# List of strings to write to the file
+lines_to_add = ["First line.\n", "Second line.\n", "Third line.\n"]
+
+# Open the file in write mode ('w'). This will overwrite existing content.
+with open(filename, 'w') as file:
+    file.writelines(lines_to_add)
+
+print("New content written to the file.")
+```
+
+#### Step 3: Read the Content from the File
+
+```python
+# Open the file in read mode and print its contents
+with open(filename, 'r') as file:
+    print("Current file content:")
+    print(file.read())
+```
+
+#### Step 4: Append New Content to the File
+
+```python
+# New content to append
+new_content = "This line has been appended.\n"
+
+# Open the file in append mode ('a') and add the new content
+with open(filename, 'a') as file:
+    file.write(new_content)
+
+print("Content appended.")
+```
+
+#### Step 5: Read the Appended Content
+
+```python
+# Re-open the file in read mode to see the appended content
+with open(filename, 'r') as file:
+    print("Content after appending:")
+    print(file.read())
+```
+
+This example covers checking if a file exists, creating a file, writing to it, reading from it, appending to it, and ensuring that the file is properly opened and closed using the `with` statement. By running these snippets step by step or integrating them into a single script, you can see how file operations are handled in Python and get a practical understanding of reading, writing, and appending operations in file handling.
